@@ -1,0 +1,7 @@
+<img ng-src="{{ eventsShow.event.image }}">
+
+<h2>{{ eventsShow.event.name }}</h2>
+<p><strong>{{ eventsShow.event.latinName }}</strong> <em>{{ eventsShow.event.family }}</em></p>
+
+<a ui-sref="eventsEdit({ id: eventsShow.event.id })">Edit</a>
+<button ng-click="eventsShow.delete()">Delete</button>
