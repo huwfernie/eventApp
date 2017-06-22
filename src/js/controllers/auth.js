@@ -28,9 +28,14 @@ function LoginCtrl($auth, $state) {
       .then(() => $state.go('eventsIndex'));
   }
 
+  // function authenticate(provider) {
+  //   $auth.authenticate(provider)
+  //     .then(() => $state.go('eventsIndex'));
+  // }
+  // vm.authenticate = authenticate;
+
   function authenticate(provider) {
-    $auth.authenticate(provider)
-      .then(() => $state.go('eventsIndex'));
+    console.log('hello', provider);
   }
   vm.authenticate = authenticate;
 

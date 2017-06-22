@@ -3,11 +3,8 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
-  email: { type: String, required: false, unique: true },
-  password: { type: String, required: true },
-  facebookId: { type: String },
-  githubId: { type: Number },
-  instagramId: { type: Number }
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true }
 });
 
 userSchema
@@ -16,20 +13,8 @@ userSchema
     this._passwordConfirmation = passwordConfirmation;
   });
 
-
-module.exports = mongoose.model('User', userSchema);
-
-userSchema
-  .virtual('passwordConfirmation')
-  .set(function setPasswordConfirmation(passwordConfirmation) {
-    this._passwordConfirmation = passwordConfirmation;
-  });
-
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this.password && !this.githubId && !this.facebookId && !this.instagramId) {
-    this.invalidate('password', 'required');
-  }
-  if(this.isModified('password') && this._passwordConfirmation !== this.password){
+  if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) {
     this.invalidate('passwordConfirmation', 'does not match');
   }
   next();
