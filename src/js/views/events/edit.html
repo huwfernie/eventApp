@@ -1,19 +1,23 @@
-<form ng-submit="eventsEdit.update()">
+<form ng-submit="eventsEdit.update()" enctype="multipart/form-data">
   <div>
     <label for="name">Name</label>
     <input type="text" name="name" id="name" ng-model="eventsEdit.event.name">
   </div>
   <div>
-    <label for="latinName">Latin Name</label>
-    <input type="text" name="latinName" id="latinName" ng-model="eventsEdit.event.latinName">
+    <label for="category">Category</label>
+    <input type="text" name="category" id="category" ng-model="eventsEdit.event.category">
   </div>
   <div>
-    <label for="family">Family</label>
-    <input type="text" name="family" id="family" ng-model="eventsEdit.event.family">
+    <label for="location">location</label>
+    <input type="text" name="location" id="location" ng-model="eventsEdit.event.location.name">
+  </div>
+  <div>
+    <label for="website">Website</label>
+    <input type="text" name="website" id="website" ng-model="eventsEdit.event.website">
   </div>
   <div>
     <label for="image">Image</label>
-    <input type="text" name="image" id="image" ng-model="eventsEdit.event.image">
+    <input base64 type="file" name="image" id="image" ng-model="eventsEdit.event.base64">
   </div>
 
   <button>Update</button>

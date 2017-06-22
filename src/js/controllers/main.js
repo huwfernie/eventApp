@@ -15,7 +15,7 @@ function MainCtrl($rootScope, $state, $auth) {
     if(err.status === 401) $state.go('login'); // if unauthorized redirect to login.
   });
 
-  $rootScope.$on('stateChangeSuccess', () => {
+  $rootScope.$on('$stateChangeSuccess', () => {
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
   });

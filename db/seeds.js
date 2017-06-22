@@ -12,7 +12,7 @@ const eventData = [{
   category: 'sport',
   location: {name: 'Finsbury Park', lat: 50, lon: -1},
   website: 'http://www.londonmets.org/page/show/1229784-baseball-for-beginners',
-  image: 'http://cdn4.sportngin.com/attachments/text_block/3526/0385/B4B_Regulars_1__medium.jpg'
+  image: 'blend.JPG'
 },{
   name: 'Baseball for beginers 2',
   category: 'sport',

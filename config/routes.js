@@ -2,16 +2,18 @@ const router = require('express').Router();
 const events = require('../controllers/events');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
+const imageUpload = require('../lib/imageUpload');
+
 
 router.route('/events')
 .all(secureRoute)
   .get(events.index)
-  .post(events.create);
+  .post(imageUpload, events.create);
 
 router.route('/events/:id')
 .all(secureRoute)
   .get(events.show)
-  .put(events.update)
+  .put(imageUpload, events.update)
   .delete(events.delete);
 
 router.route('/register')
