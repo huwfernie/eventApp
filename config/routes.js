@@ -3,10 +3,10 @@ const events = require('../controllers/events');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
-// const oauth = require('../controllers/oauth');
+const oauth = require('../controllers/oauth');
 
 router.route('/events')
-.all(secureRoute)
+// .all(secureRoute)
   .get(events.index)
   .post(imageUpload, events.create);
 
@@ -22,8 +22,8 @@ router.route('/register')
 router.route('/login')
   .post(auth.login);
 
-// router.route('/oauth/github')
-//   .post(oauth.github);
+router.route('/oauth/github')
+  .post(oauth.github);
 //
 // router.route('/oauth/facebook')
 //   .post(oauth.facebook);

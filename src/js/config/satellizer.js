@@ -27,13 +27,26 @@
 // }
 
 
+// angular
+//   .module('eventApp')
+//   .config(Auth); // name the function
+//
+// Auth.$inject = ['$authProvider'];
+//
+// function Auth($authProvider) {
+//   $authProvider.signupUrl = '/api/register';
+//   $authProvider.loginUrl = '/api/login';
+// }
+
 angular
   .module('eventApp')
-  .config(Auth); // name the function
+  .config(Auth);
 
 Auth.$inject = ['$authProvider'];
-
 function Auth($authProvider) {
-  $authProvider.signupUrl = '/api/register';
-  $authProvider.loginUrl = '/api/login';
+
+  $authProvider.github({
+    clientId: 'd2cfd327c82736a6383d', // change this for different apps
+    url: '/api/oauth/github'
+  });
 }

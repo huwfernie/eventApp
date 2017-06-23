@@ -27,6 +27,7 @@ function LoginCtrl($auth, $state) {
     $auth.login(vm.credentials)
       .then(() => $state.go('eventsIndex'));
   }
+  vm.submit = submit;
 
   // function authenticate(provider) {
   //   $auth.authenticate(provider)
@@ -35,9 +36,8 @@ function LoginCtrl($auth, $state) {
   // vm.authenticate = authenticate;
 
   function authenticate(provider) {
-    console.log('hello', provider);
+    $auth.authenticate(provider)
+      .then(() => $state.go('eventsIndex')); // where to go after login
   }
   vm.authenticate = authenticate;
-
-  vm.submit = submit;
 }

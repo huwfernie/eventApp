@@ -4,7 +4,9 @@ const bcrypt = require('bcrypt');
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }
+  image: { type: String },
+  password: { type: String },
+  githubId: { type: Number }
 });
 
 userSchema
@@ -14,7 +16,10 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPassword(next) {
-  if(!this._passwordConfirmation || this._passwordConfirmation !== this.password) {
+  if(!this.password && !this.githubId) {
+    this.invalidate('password', 'required');
+  }
+  if(this.isModified('password') && this._passwordConfirmation !== this.password){
     this.invalidate('passwordConfirmation', 'does not match');
   }
   next();
