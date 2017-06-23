@@ -24,6 +24,7 @@ router.route('/login')
 
 router.route('/oauth/github')
   .post(oauth.github);
+
 //
 // router.route('/oauth/facebook')
 //   .post(oauth.facebook);
