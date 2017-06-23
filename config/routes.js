@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const events = require('../controllers/events');
 const auth = require('../controllers/auth');
+const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
-const oauth = require('../controllers/oauth');
 
 router.route('/events')
 // .all(secureRoute)

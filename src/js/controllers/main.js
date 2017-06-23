@@ -25,6 +25,6 @@ function MainCtrl($rootScope, $state, $auth) {
     $auth.logout();
     $state.go('login'); // redirect to login page
   }
-
   vm.logout = logout;
+  
 }

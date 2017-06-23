@@ -45,6 +45,11 @@ angular
 Auth.$inject = ['$authProvider'];
 function Auth($authProvider) {
 
+  // for form based register and login
+  $authProvider.signupUrl = '/api/register';
+  $authProvider.loginUrl = '/api/login';
+
+  // for github oAuth
   $authProvider.github({
     clientId: 'd2cfd327c82736a6383d', // change this for different apps
     url: '/api/oauth/github'
