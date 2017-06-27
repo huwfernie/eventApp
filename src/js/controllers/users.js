@@ -11,9 +11,9 @@ function UsersIndexCtrl(User) {
 
   vm.all = User.query();
   vm.all = [1,2,3,4];
-
-
 }
+
+
 /*
 find the userId from the jwt token and then get the user, store the current user in userService
 */
@@ -27,7 +27,7 @@ function UsersShowCtrl(User, $auth, $state, userService) {
       .get({ id: data.userId })
       .$promise
       .then((user) => {
-        console.log(user);
+        console.log('user controll getCurrentUser', user);
         vm.currentUser = user;
         userService.currentUser = user;
       });

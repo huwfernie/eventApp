@@ -2,11 +2,24 @@ angular
   .module('eventApp')
   .controller('MainCtrl', MainCtrl);
 
-MainCtrl.$inject = ['$rootScope', '$state', '$auth'];
-function MainCtrl($rootScope, $state, $auth) {
+MainCtrl.$inject = ['$rootScope', '$state', '$auth', 'userService', 'User'];
+function MainCtrl($rootScope, $state, $auth, userService, User) {
   const vm = this;
+  vm.currentUser = {};
 
   vm.isAuthenticated = $auth.isAuthenticated;
+
+  const data = $auth.getPayload();
+  User
+    .get({ id: data.userId })
+    .$promise
+    .then((user) => {
+      console.log('this', user.username);
+      vm.currentUser.username = user.username;
+      userService.currentUser = user;
+    });
+
+
   // rootscope is listening - it will pick up any 'error'
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
@@ -26,5 +39,5 @@ function MainCtrl($rootScope, $state, $auth) {
     $state.go('login'); // redirect to login page
   }
   vm.logout = logout;
-  
+
 }
