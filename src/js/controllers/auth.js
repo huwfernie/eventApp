@@ -26,7 +26,7 @@ function LoginCtrl($auth, $state) {
   function submit() {
     console.log('credentials', vm.credentials);
     $auth.login(vm.credentials)
-      .then(() => $state.go('eventsIndex'));
+      .then((user) => $state.go('profile', {params: {user}} ));
   }
   vm.submit = submit;
 

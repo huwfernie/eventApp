@@ -1,9 +1,12 @@
 const router = require('express').Router();
 const events = require('../controllers/events');
+const users = require('../controllers/users');
 const auth = require('../controllers/auth');
 const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
+
+// Events
 
 router.route('/events')
 // .all(secureRoute)
@@ -15,6 +18,21 @@ router.route('/events/:id')
   .get(events.show)
   .put(imageUpload, events.update)
   .delete(events.delete);
+
+// Users
+router.route('/users')
+// .all(secureRoute)
+  .get(users.index)
+  .post(imageUpload, users.create);
+
+router.route('/users/:id')
+.all(secureRoute)
+  .get(users.show)
+  .put(imageUpload, users.update)
+  .delete(users.delete);
+
+
+// register, login, oAuth
 
 router.route('/register')
   .post(auth.register);

@@ -1,10 +1,10 @@
 angular
   .module('eventApp')
-  .factory('Event', Event);
+  .factory('User', User);
 
-Event.$inject = ['$resource'];
-function Event($resource) {
-  return new $resource('/api/events/:id', { id: '@id' }, {
+User.$inject = ['$resource'];
+function User($resource) {
+  return new $resource('/api/users/:id', { id: '@id' }, {
     update: { method: 'PUT' }
   });
 }
