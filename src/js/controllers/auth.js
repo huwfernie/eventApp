@@ -24,10 +24,8 @@ function LoginCtrl($auth, $state) {
   vm.credentials = {};
 
   function submit() {
-    console.log('credentials', vm.credentials);
     $auth.login(vm.credentials)
-      .then((user) => {
-        console.log(user);
+      .then(() => {
         $state.go('usersShow');
       });
   }

@@ -27,6 +27,7 @@ function UsersShowCtrl(User, $auth, $state, userService) {
       .get({ id: data.userId })
       .$promise
       .then((user) => {
+        console.log(user);
         vm.currentUser = user;
         userService.currentUser = user;
       });
@@ -39,7 +40,7 @@ function UsersShowCtrl(User, $auth, $state, userService) {
       .then(() => $state.go('usersIndex'));
   }
   vm.delete = usersDelete;
-  
+
 }
 
 UsersEditCtrl.$inject = ['User', '$stateParams', '$state'];

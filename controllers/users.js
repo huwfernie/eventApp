@@ -22,7 +22,8 @@ function showRoute(req, res, next) {
     .exec()
     .then((user) => {
       if(!user) return res.notFound();
-
+      const tempUser = user;
+      tempUser.password = null;
       res.json(user);
     })
     .catch(next);
