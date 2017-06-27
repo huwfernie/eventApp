@@ -14,7 +14,7 @@ router.route('/events')
   .post(imageUpload, events.create);
 
 router.route('/events/:id')
-.all(secureRoute)
+//.all(secureRoute)
   .get(events.show)
   .put(imageUpload, events.update)
   .delete(events.delete);
@@ -26,7 +26,7 @@ router.route('/users')
   .post(imageUpload, users.create);
 
 router.route('/users/:id')
-.all(secureRoute)
+//.all(secureRoute)
   .get(users.show)
   .put(imageUpload, users.update)
   .delete(users.delete);

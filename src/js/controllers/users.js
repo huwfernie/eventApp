@@ -14,22 +14,32 @@ function UsersIndexCtrl(User) {
 
 
 }
-
-UsersShowCtrl.$inject = ['User', '$stateParams', '$state'];
-function UsersShowCtrl(User, $stateParams, $state) {
+/*
+find the userId from the jwt token and then get the user, store the current user in userService
+*/
+UsersShowCtrl.$inject = ['User', '$auth', '$state', 'userService'];
+function UsersShowCtrl(User, $auth, $state, userService) {
   const vm = this;
 
-  vm.user = User.get($stateParams);
+  function getCurrentUser() {
+    const data = $auth.getPayload();
+    User
+      .get({ id: data.userId })
+      .$promise
+      .then((user) => {
+        vm.currentUser = user;
+        userService.currentUser = user;
+      });
+  }
+  getCurrentUser();
 
-  vm.all = [1,2,3,4];
-  vm.all = User.query();
   function usersDelete() {
     vm.user
       .$remove()
       .then(() => $state.go('usersIndex'));
   }
-
   vm.delete = usersDelete;
+  
 }
 
 UsersEditCtrl.$inject = ['User', '$stateParams', '$state'];

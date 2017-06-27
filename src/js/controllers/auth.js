@@ -26,19 +26,17 @@ function LoginCtrl($auth, $state) {
   function submit() {
     console.log('credentials', vm.credentials);
     $auth.login(vm.credentials)
-      .then((user) => $state.go('profile', {params: {user}} ));
+      .then((user) => {
+        console.log(user);
+        $state.go('usersShow');
+      });
   }
   vm.submit = submit;
 
-  // function authenticate(provider) {
-  //   $auth.authenticate(provider)
-  //     .then(() => $state.go('eventsIndex'));
-  // }
-  // vm.authenticate = authenticate;
-
+  // for oAuth
   function authenticate(provider) {
     $auth.authenticate(provider)
-      .then(() => $state.go('eventsIndex')); // where to go after login
+      .then(() => $state.go('usersShow')); // where to go after login
   }
   vm.authenticate = authenticate;
 }

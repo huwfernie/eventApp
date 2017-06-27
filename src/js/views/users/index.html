@@ -2,6 +2,8 @@
   profile
 </h1>
 
-<div ng-repeat="user in usersShow.all">
+<div ng-repeat="user in usersShow.currentUser">
   {{ user }}
 </div>
+
+<button ng-click="usersShow.splat()">Click</button>

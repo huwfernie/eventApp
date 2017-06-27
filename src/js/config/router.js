@@ -7,6 +7,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
+// events
     .state('eventsIndex', {
       url: '/events',
       templateUrl: 'js/views/events/index.html',
@@ -27,11 +28,13 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/events/edit.html',
       controller: 'EventsEditCtrl as eventsEdit'
     })
-    .state('profile', {
+// users
+    .state('usersShow', {
       url: '/users/:id',
       templateUrl: 'js/views/users/index.html',
       controller: 'UsersShowCtrl as usersShow'
     })
+// register and login
     .state('register', {
       url: '/register',
       templateUrl: 'js/views/auth/register.html',
