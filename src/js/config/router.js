@@ -31,7 +31,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
 // users
     .state('usersShow', {
       url: '/users/:id',
-      templateUrl: 'js/views/users/index.html',
+      templateUrl: 'js/views/users/show.html',
       controller: 'UsersShowCtrl as usersShow'
     })
 // register and login

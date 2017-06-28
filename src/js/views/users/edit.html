@@ -1,0 +1,24 @@
+<form ng-submit="eventsEdit.update()" enctype="multipart/form-data">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" ng-model="eventsEdit.event.name">
+  </div>
+  <div>
+    <label for="category">Category</label>
+    <input type="text" name="category" id="category" ng-model="eventsEdit.event.category">
+  </div>
+  <div>
+    <label for="location">location</label>
+    <input type="text" name="location" id="location" ng-model="eventsEdit.event.location.name">
+  </div>
+  <div>
+    <label for="website">Website</label>
+    <input type="text" name="website" id="website" ng-model="eventsEdit.event.website">
+  </div>
+  <div>
+    <label for="image">Image</label>
+    <input base64 type="file" name="image" id="image" ng-model="eventsEdit.event.base64">
+  </div>
+
+  <button>Update</button>
+</form>

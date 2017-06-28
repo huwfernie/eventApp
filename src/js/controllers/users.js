@@ -47,19 +47,19 @@ function UsersShowCtrl(User, $auth, $state, userService) {
 
       switch(x-1) {
         case 0:
-          vm.things = [1,2];
+          vm.events = demoArray;
           break;
         case 1:
-          vm.things = [1,2,3];
+          vm.events = [1,2,3];
           break;
         case 2:
-          vm.things = [1,2,3,4];
+          vm.events = [1,2,3,4];
           break;
         case 3:
-          vm.things = [1,2,3,4,5];
+          vm.events = [1,2,3,4,5];
           break;
         case 4:
-          vm.things = [1,2,3,4,5,6];
+          vm.events = [1,2,3,4,5,6];
       }
     }
   }
