@@ -20,6 +20,8 @@ find the userId from the jwt token and then get the user, store the current user
 UsersShowCtrl.$inject = ['User', '$auth', '$state', 'userService'];
 function UsersShowCtrl(User, $auth, $state, userService) {
   const vm = this;
+  vm.activeTab = null;
+  changeTab(1);
 
   function getCurrentUser() {
     const data = $auth.getPayload();
@@ -34,13 +36,56 @@ function UsersShowCtrl(User, $auth, $state, userService) {
   }
   getCurrentUser();
 
+  function changeTab(x) {
+    const allTabs = document.getElementsByClassName('tabs');
+    if(vm.activeTab !== x) {
+      vm.activeTab = x;
+      for(let i = 0; i < allTabs.length; i++) {
+        allTabs[i].classList.remove('active');
+      }
+      allTabs[x-1].classList.add('active');
+
+      switch(x-1) {
+        case 0:
+          vm.things = [1,2];
+          break;
+        case 1:
+          vm.things = [1,2,3];
+          break;
+        case 2:
+          vm.things = [1,2,3,4];
+          break;
+        case 3:
+          vm.things = [1,2,3,4,5];
+          break;
+        case 4:
+          vm.things = [1,2,3,4,5,6];
+      }
+    }
+  }
+  vm.changeTab = changeTab;
+
+
+
+  const demoArray = [{
+    title: 'baseball for beginers',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    date: '01-07-2017',
+    image: 'logo.png'
+  },{
+    title: 'baseball for beginers',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    date: '01-07-2017',
+    image: 'logo.png'
+  }];
+
+
   function usersDelete() {
     vm.user
       .$remove()
       .then(() => $state.go('usersIndex'));
   }
   vm.delete = usersDelete;
-
 }
 
 UsersEditCtrl.$inject = ['User', '$stateParams', '$state'];

@@ -1,9 +1,37 @@
 <h1>
   profile
 </h1>
-
 <div ng-repeat="user in usersShow.currentUser">
   {{ user }}
+</div>
+<div class="tab-container clearfix">
+  <div class="tabs active" ng-click="usersShow.changeTab(1)">
+    My Previous Events
+  </div>
+  <div class="tabs" ng-click="usersShow.changeTab(2)">
+    My Favourites
+  </div>
+  <div class="tabs" ng-click="usersShow.changeTab(3)">
+    Organised by me
+  </div>
+  <div class="tabs" ng-click="usersShow.changeTab(4)">
+    Recomended for me
+  </div>
+  <div class="tabs" ng-click="usersShow.changeTab(5)">
+    I'm attending
+  </div>
+
+  <div class="tabbed">
+
+    <div class="content">
+      Content 1
+      <ul>
+        <li ng-repeat="thing in usersShow.things">{{thing}}</li>
+      </ul>
+    </div>
+
+  </div>
+
 </div>
 
 <button ng-click="usersShow.splat()">Click</button>
