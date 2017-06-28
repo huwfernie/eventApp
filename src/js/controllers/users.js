@@ -19,6 +19,18 @@ find the userId from the jwt token and then get the user, store the current user
 */
 UsersShowCtrl.$inject = ['User', '$auth', '$state', 'userService'];
 function UsersShowCtrl(User, $auth, $state, userService) {
+  const demoArray = [{
+    title: 'baseball for beginers',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    date: '01-07-2017',
+    image: 'logo.png'
+  },{
+    title: 'baseball for beginers',
+    details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    date: '01-07-2017',
+    image: 'logo.png'
+  }];
+  
   const vm = this;
   vm.activeTab = null;
   changeTab(1);
@@ -47,6 +59,7 @@ function UsersShowCtrl(User, $auth, $state, userService) {
 
       switch(x-1) {
         case 0:
+          console.log('did I run?');
           vm.events = demoArray;
           break;
         case 1:
@@ -67,17 +80,7 @@ function UsersShowCtrl(User, $auth, $state, userService) {
 
 
 
-  const demoArray = [{
-    title: 'baseball for beginers',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    date: '01-07-2017',
-    image: 'logo.png'
-  },{
-    title: 'baseball for beginers',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    date: '01-07-2017',
-    image: 'logo.png'
-  }];
+
 
 
   function usersDelete() {
