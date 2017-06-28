@@ -1,12 +1,27 @@
 body {
+  margin: 0;
   background: white;
   font-size: 28px;
+}
+
+nav {
+  background: #dfdffb;
+  height: 115px;
+  line-height: 115px;
+  img {
+    float: left;
+  }
+  .navUser {
+    float: right;
+    padding-right: 30px;
+  }
 }
 
 main {
   width: 900px;
   margin: 0 auto;
   background: #7474ce;
+  background: white;
 }
 
 ul {
@@ -18,9 +33,9 @@ ul {
 }
 
 .tab-container {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  background: red;
+  background: inherit;
   // font-size: 0;
 }
 
@@ -45,16 +60,19 @@ ul {
   }
 }
 
+
+.tabbed {
+  box-sizing: border-box;
+  width: 100%;
+  background: #f5ddc2;
+  border: 2px solid black;
+  border-top: 0;
+  font-size: 1em;
+  float: left;
+}
+
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
-}
-
-.tabbed {
-  width: 100%;
-  background: #f5ddc2;
-  color: black;
-  font-size: 16px;
-  float: left;
 }
