@@ -1,7 +1,13 @@
 <img ng-src="{{ eventsShow.event.imageSRC }}">
 
-<h2>{{ eventsShow.event.name }}</h2>
-<p><strong>{{ eventsShow.event.latinName }}</strong> <em>{{ eventsShow.event.family }}</em></p>
+<div class="details">
+  <h2>{{ eventsShow.event.name }}</h2><a ui-sref="eventsEdit({ id: eventsShow.event.id })"><button>Edit</button></a>
+  <button ng-click="eventsShow.delete()">Delete</button>
 
-<a ui-sref="eventsEdit({ id: eventsShow.event.id })">Edit</a>
-<button ng-click="eventsShow.delete()">Delete</button>
+
+  <span class="about">{{ eventsShow.event.category }}</span>
+  <a href="{{ eventsShow.website }}"><span class="about">Official Website</span></a>
+  <span class="about">{{ eventsShow.event.location.name }}</span>
+
+  <span class="about">{{ eventsShow.event.details }}</span>
+</div>
