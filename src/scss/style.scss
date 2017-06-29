@@ -28,8 +28,11 @@ main {
   background: #7474ce;
   background: white;
   img {
+    box-sizing: border-box;
     float: right;
-
+    border: 2px solid #dfdffb;
+    margin: 0 0 20px 20px;
+    max-width: 50%;
   }
   &:after {
     content: "";
