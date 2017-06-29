@@ -11,7 +11,7 @@
 <body ng-controller="MainCtrl as main">
   <top>
     <nav>
-      <img src="../images/logo.png"/>
+      <a ui-sref="home"><img src="../images/logo.png"/></a>
       <span class="navlink"><a ui-sref="eventsIndex">All Events</a></span>
       <span class="navlink"><a ui-sref="eventsSearch">Find Events</a></span>
       <span class="navlink" ng-if="main.isAuthenticated()"><a ui-sref="eventsNew">Post an Event</a></span>

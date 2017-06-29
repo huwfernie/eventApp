@@ -49,6 +49,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/login',
       templateUrl: 'js/views/auth/login.html',
       controller: 'LoginCtrl as login'
+    })
+    .state('home', {
+      url: '/home',
+      templateUrl: 'js/views/statics/index.html',
+      controller: 'LoginCtrl as login'
     });
 
   $urlRouterProvider.otherwise('/events');

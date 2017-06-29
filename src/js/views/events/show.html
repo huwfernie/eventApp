@@ -7,7 +7,8 @@
 
   <span class="about">{{ eventsShow.event.category }}</span>
   <a href="{{ eventsShow.event.website }}"><span class="about">Official Website</span></a>
-  <span class="about">{{ eventsShow.event.location.name }}</span>
+  <span class="about">Location - {{ eventsShow.event.location.name }}</span>
+  <span class="about"><button>see map</button><button>get directions</button></span>
 
   <span class="about">{{ eventsShow.event.details }}</span>
 </div>
