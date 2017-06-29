@@ -23,6 +23,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/events/show.html',
       controller: 'EventsShowCtrl as eventsShow'
     })
+    .state('eventsSearch', {
+      url: '/eventsSearch',
+      templateUrl: 'js/views/events/search.html',
+      controller: 'EventsSearchCtrl as eventsSearch'
+    })
     .state('eventsEdit', {
       url: '/events/:id/edit',
       templateUrl: 'js/views/events/edit.html',

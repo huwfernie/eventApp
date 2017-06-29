@@ -3,6 +3,7 @@ angular
   .controller('EventsIndexCtrl', EventsIndexCtrl)
   .controller('EventsNewCtrl', EventsNewCtrl)
   .controller('EventsShowCtrl', EventsShowCtrl)
+  .controller('EventsSearchCtrl', EventsSearchCtrl)
   .controller('EventsEditCtrl', EventsEditCtrl);
 
 EventsIndexCtrl.$inject = ['Event'];
@@ -42,6 +43,12 @@ function EventsShowCtrl(Event, $stateParams, $state) {
   }
 
   vm.delete = eventsDelete;
+}
+
+EventsSearchCtrl.$inject = ['Event', '$stateParams', '$state'];
+function EventsSearchCtrl(Event, $stateParams, $state) {
+  const vm = this;
+
 }
 
 EventsEditCtrl.$inject = ['Event', '$stateParams', '$state'];

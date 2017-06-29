@@ -1,8 +1,10 @@
+<!-- Events Index -->
+
+
+
+
 <ul>
   <li ng-repeat="event in eventsIndex.all">
-    <img ng-src="{{ event.imageSRC }}">
-
     <a ui-sref="eventsShow({ id: event.id })"><h2>{{ event.name }}</h2></a>
-    <p><strong>{{ event.latinName }}</strong> <em>{{ event.family }}</em></p>
   </li>
 </ul>
