@@ -7,7 +7,11 @@ body {
 nav {
   background: #dfdffb;
   height: 115px;
-  line-height: 115px;
+  line-height: 160px;
+  a {
+    text-decoration: none;
+    padding-left: 10px;
+  }
   img {
     float: left;
   }

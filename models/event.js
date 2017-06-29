@@ -15,6 +15,13 @@ const eventSchema = new mongoose.Schema({
 });
 
 eventSchema
+  .path('image')
+  .set(function getPreviousImage(image) {
+    this._image = this.image;
+    return image;
+  });
+
+eventSchema
   .virtual('imageSRC')
   .get(function getImageSRC() {
     if(!this.image) return null;
@@ -26,18 +33,11 @@ eventSchema.pre('remove', function removeImage(next) {
   next();
 });
 
-eventSchema
-  .path('image')
-  .set(function getPreviousImage(image) {
-    this._image = this.image;
-    return image;
-  });
-
-eventSchema.pre('save', function checkPreviousImage(next) {
-  if(this.isModified('image') && this._image) {
-    return s3.deleteObject({ Key: this._image }, next);
-  }
-  next();
-});
+// eventSchema.pre('save', function checkPreviousImage(next) {
+//   if(this.isModified('image') && this._image) {
+//     return s3.deleteObject({ Key: this._image }, next);
+//   }
+//   next();
+// });
 
 module.exports = mongoose.model('Event', eventSchema);

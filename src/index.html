@@ -15,9 +15,9 @@
       <span class="navlink"><a ui-sref="eventsIndex">All Events</a></span>
       <span class="navlink"><a ui-sref="eventsSearch">Find Events</a></span>
       <span class="navlink" ng-if="main.isAuthenticated()"><a ui-sref="eventsNew">Post an Event</a></span>
-      <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></span>
-      <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></span>
       <span class="navUser">
+        <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></span>
+        <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></span>
         <span class="navlink" ng-if="main.isAuthenticated()">{{ main.currentUser.username }}</span>
         <span class="navlink" ng-if="main.isAuthenticated()"><button ng-click="main.logout()">Logout</button></span>
         <span class="navlink" ng-if="main.isAuthenticated()"><a ui-sref="usersShow"><button>Profile</button></a></span>
