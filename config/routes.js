@@ -16,7 +16,8 @@ router.route('/events')
 
 router.route('/eventsSearch')
 // .all(secureRoute)
-  .get(locations.search);
+  // .get(locations.search);
+  .get(events.search);
 
 router.route('/events/:id')
 //.all(secureRoute)

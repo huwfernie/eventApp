@@ -9,59 +9,36 @@ function indexRoute(req, res, next) {
 }
 
 function searchRoute(req, res, next) {
-  console.log('hello', req.query.longitude);
-  // var limit = req.query.limit || 2;
-  // var maxDistance = req.query.distance || 100;
-  // maxDistance /= 6371;
-  // var coords = []; // get coordinates [ <longitude> , <latitude> ]
-  // coords[0] = req.query.longitude;
-  // coords[1] = req.query.latitude;
+  var limit = req.query.limit || 10;
+  limit = parseInt(limit);
+
+  // get the max distance or set it to 8 kilometers
+  var maxDistance = req.query.distance || 8;
+
+  // we need to convert the distance to radians
+  // the raduis of Earth is approximately 6371 kilometers
+  maxDistance /= 6371;
+
+  // get coordinates [ <longitude> , <latitude> ]
+  var coords = [];
+  coords[0] = req.query.longitude || 0;
+  coords[1] = req.query.latitude || 0;
 
   // find a location
-
-  // Event
-  // .find({
-  //   loc: {
-  //     $near: {
-  //       type: 'Point', coordinates:[-179.0, 0.0]
-  //     }
-  //   }
-  // }, function (err, docs) {
-
-//   Event
-//   .find({ 'loc': { $near: { type: 'Point',  coordinates: [ 0, 0 ] }}})
-//   .exec()
-//   .then((events)=> {
-//     if(events) return res.status(200).json({results: events});
-//   })
-// .catch(next);
-
-
-  Event
-  .find({ loc: { '$near': {
-    '$maxDistance': 1,
-    '$geometry': { type: 'Point', coordinates: [ 0, 0 ] } } }
-  })
-  .then((events)=> {
-    if(events) return res.status(200).json({results: events});
+  Event.find({
+    loc: {
+      $near: coords,
+      $maxDistance: maxDistance
+    }
+  }).limit(limit).exec(function(err, locations) {
+    if (err) {
+      return res.status(500).json(err);
+    }
+    return res.status(200).json(locations);
   })
   .catch(next);
 }
 
-//   Event
-//     .find({
-//       loc: {
-//         $near: coords,
-//         $maxDistance: maxDistance
-//       }
-//     })
-//     .limit(1) //limit
-//     .exec()
-//     .then((events)=> {
-//       if(events) return res.status(200).json({results: events});
-//     })
-//   .catch(next);
-// }
 
 function createRoute(req, res, next) {
   if(req.file) req.body.image = req.file.filename;

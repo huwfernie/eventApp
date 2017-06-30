@@ -21,4 +21,14 @@
   <button>click</button>
 </form>
 
-data: {{ eventsSearch.data }}
+
+<p>
+  data: {{ eventsSearch.data }}<br>
+  ===================
+</p>
+
+<div ng-repeat="event in eventsSearch.data">
+  {{event.name}}
+  {{event.loc}}
+  <hr>
+</div>

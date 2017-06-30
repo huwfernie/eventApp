@@ -11,8 +11,8 @@ const eventSchema = new mongoose.Schema({
     lon: { type: String, required: true }
   },
   loc: {
-    type: { type: String },
-    coordinates: { type: [Number], index: '2dsphere'}
+    type: [Number],  // [<longitude>, <latitude>]
+    index: '2d'      // create the geospatial index
   },
   website: { type: String, required: false },
   details: { type: String, required: false },
