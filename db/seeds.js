@@ -4,30 +4,8 @@ mongoose.Promise = require('bluebird');
 mongoose.connect(dbURI);
 
 const Event = require('../models/event');
-const Location = require('../models/location');
-
-
 
 Event.collection.drop();
-Location.collection.drop();
-
-const places = [
-  {
-    name: 'Piaţa Cipariu',
-    // get coordinates [ <longitude> , <latitude> ]
-    loc: [
-      23.600800037384033,
-      46.76758746952729
-    ]
-  },
-  {
-    name: 'Stația Piața Cipariu',
-    loc: [
-      23.601171912820668,
-      46.76771454984428
-    ]
-  }
-];
 
 const eventData = [{
   name: 'Baseball for beginers',
@@ -67,10 +45,4 @@ Event
   .create(eventData)
   .then(events => console.log(`${events.length} events created!`))
   .catch(err => console.log(err))
-  .then(()=> {
-    Location
-      .create(places)
-      .then(places => console.log(`${places.length} places created!`))
-      .catch(err => console.log(err))
-      .finally(() => mongoose.connection.close());
-  });
+  .finally(() => mongoose.connection.close());

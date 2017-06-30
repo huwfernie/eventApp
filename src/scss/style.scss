@@ -24,6 +24,7 @@ nav {
 main {
   width: 900px;
   margin: 20px auto;
+  margin-left: 150px;
   padding: 10px;
   background: #7474ce;
   background: white;
@@ -88,13 +89,49 @@ ul {
   float: left;
 }
 
+.listContainer {
+  .eventsList {
+    background: rgba(255, 83, 83, 0.4);
+    margin: 1em 0;
+    padding: 20px 10px;
+    border: 2px solid #dfdffb;
+    border-radius: 5px;
+    height:120px;
+    h2 {
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+    }
+    .thumbnail {
+      float: left;
+      margin: 10px 20px 0 0;
+      height: 100px;
+      width: 150px;
+      border: 0;
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+  }
+}
+
+.about {
+  display: block;
+  padding: 10px 0;
+}
+
+
+//  generic
 .clearfix:after {
   content: "";
   display: table;
   clear: both;
 }
 
-.about {
-  display: block;
-  padding: 10px 0;
+// generic
+.none {
+  display: none;
 }

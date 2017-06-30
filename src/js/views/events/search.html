@@ -4,10 +4,11 @@
   Search by...
 </p>
 
-<button>near me now</button>
+<button ng-click="eventsSearch.nearMeNow()">near me now</button>
 <button>pick a time</button>
 <button>pick a place</button>
 <button>pick a category</button>
+
 
 <form ng-submit="eventsSearch.sploosh()">
   <label>lat</label>
@@ -22,13 +23,14 @@
 </form>
 
 
-<p>
+<p class="none">
   data: {{ eventsSearch.data }}<br>
   ===================
 </p>
 
-<div ng-repeat="event in eventsSearch.data">
-  {{event.name}}
-  {{event.loc}}
-  <hr>
+<div class="listContainer">
+  <div class="eventsList" ng-repeat="event in eventsSearch.data">
+      <img class="thumbnail" src="{{event.image}}" alt="thumbnail">
+      <a ui-sref="eventsShow({ id: event.id })"><h2>{{ event.name }}</h2></a>
+  </div>
 </div>

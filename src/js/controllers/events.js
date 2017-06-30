@@ -48,11 +48,37 @@ function EventsShowCtrl(Event, $stateParams, $state) {
 EventsSearchCtrl.$inject = ['Event', '$stateParams', '$state', '$http'];
 function EventsSearchCtrl(Event, $stateParams, $state, $http) {
   const vm = this;
-  vm.lat = 46.76758746952729;
-  vm.long = 23.600800037384033;
+  vm.lat = 51.566686;
+  vm.long = -0.091324;
   vm.limit = 10;
-  vm.distance = 10;
+  vm.distance = 500;
   vm.data = null;
+
+  function getLocation(options) {
+    return new Promise(function (resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
+  }
+
+  function useData(data){
+    console.log('data');
+    vm.long = data.coords.longitude;
+    return vm.lat = data.coords.latitude;
+  }
+
+  vm.nearMeNow = nearMeNow;
+  function nearMeNow() {
+    getLocation()
+    .then((position) => {
+      console.log(position);
+      useData(position);
+      return sploosh();
+    })
+    .catch((err) => {
+      return console.error(err.message);
+    });
+  }
+
 
   function sploosh() {
     console.log('hello');

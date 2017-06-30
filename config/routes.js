@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const events = require('../controllers/events');
 const users = require('../controllers/users');
-const locations = require('../controllers/locations');
 const auth = require('../controllers/auth');
 const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
@@ -16,7 +15,6 @@ router.route('/events')
 
 router.route('/eventsSearch')
 // .all(secureRoute)
-  // .get(locations.search);
   .get(events.search);
 
 router.route('/events/:id')
