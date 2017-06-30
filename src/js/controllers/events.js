@@ -50,6 +50,8 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
   const vm = this;
   vm.lat = 46.76758746952729;
   vm.long = 23.600800037384033;
+  vm.limit = 10;
+  vm.distance = 10;
   vm.data = null;
 
   function sploosh() {
@@ -57,7 +59,7 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
     $http({
       url: 'http://localhost:7000/api/eventsSearch',
       method: 'GET',
-      params: {longitude: vm.long, latitude: vm.lat}
+      params: {longitude: vm.long, latitude: vm.lat, limit: vm.limit, distance: vm.distance }
     })
     .then((data)=> {
       vm.data = data.data;

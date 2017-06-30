@@ -75,9 +75,10 @@ Event
   .create(eventData)
   .then(events => console.log(`${events.length} events created!`))
   .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
-Location
-  .create(places)
-  .then(places => console.log(`${places.length} places created!`))
-  .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
+  .then(()=> {
+    Location
+      .create(places)
+      .then(places => console.log(`${places.length} places created!`))
+      .catch(err => console.log(err))
+      .finally(() => mongoose.connection.close());
+  });

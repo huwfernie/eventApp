@@ -4,6 +4,7 @@ const Location = require('../models/location');
 const findLocation = function(req, res, next) {
   console.log('am i running');
   var limit = req.query.limit || 10;
+  limit = parseInt(limit);
 
   // get the max distance or set it to 8 kilometers
   var maxDistance = req.query.distance || 8;
@@ -28,7 +29,7 @@ const findLocation = function(req, res, next) {
       return res.json(500, err);
     }
 
-    res.json(200, locations);
+    return res.json(200, locations);
   });
 };
 
