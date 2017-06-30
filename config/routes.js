@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const events = require('../controllers/events');
 const users = require('../controllers/users');
+const locations = require('../controllers/locations');
 const auth = require('../controllers/auth');
 const oauth = require('../controllers/oauth');
 const secureRoute = require('../lib/secureRoute');
@@ -12,6 +13,10 @@ router.route('/events')
 // .all(secureRoute)
   .get(events.index)
   .post(imageUpload, events.create);
+
+router.route('/eventsSearch')
+// .all(secureRoute)
+  .get(locations.search);
 
 router.route('/events/:id')
 //.all(secureRoute)

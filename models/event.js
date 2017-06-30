@@ -10,6 +10,10 @@ const eventSchema = new mongoose.Schema({
     lat: { type: String, required: true },
     lon: { type: String, required: true }
   },
+  loc: {
+    type: { type: String },
+    coordinates: { type: [Number], index: '2dsphere'}
+  },
   website: { type: String, required: false },
   details: { type: String, required: false },
   image: { type: String, required: true }
