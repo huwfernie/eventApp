@@ -52,7 +52,7 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
   vm.long = -0.091324;
   vm.limit = 10;
   vm.distance = 500;
-  vm.data = null;
+  vm.search_results = null;
 
   function getLocation(options) {
     return new Promise(function (resolve, reject) {
@@ -66,32 +66,39 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
     return vm.lat = data.coords.latitude;
   }
 
-  vm.nearMeNow = nearMeNow;
   function nearMeNow() {
     getLocation()
     .then((position) => {
       console.log(position);
       useData(position);
-      return sploosh();
+      return manualSearch();
     })
     .catch((err) => {
       return console.error(err.message);
     });
   }
+  vm.nearMeNow = nearMeNow;
 
 
-  function sploosh() {
-    console.log('hello');
+
+  function manualSearch() {
+    console.log('manualSearch');
     $http({
       url: 'http://localhost:7000/api/eventsSearch',
       method: 'GET',
       params: {longitude: vm.long, latitude: vm.lat, limit: vm.limit, distance: vm.distance }
     })
     .then((data)=> {
-      vm.data = data.data;
+      vm.search_results = data.data;
     });
   }
-  vm.sploosh = sploosh;
+  vm.manualSearch = manualSearch;
+
+  function clearResults() {
+    console.log('clearResults');
+    vm.search_results = null;
+  }
+  vm.clearResults = clearResults;
 
 }
 

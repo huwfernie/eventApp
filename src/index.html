@@ -3,6 +3,7 @@
 <head>
   <base href="/">
   <title>Event App</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <!-- inject:js -->
   <!-- endinject -->
   <!-- inject:css -->
@@ -10,11 +11,11 @@
 </head>
 <body ng-controller="MainCtrl as main">
   <top>
-    <nav>
-      <a ui-sref="home"><img src="../images/logo.png"/></a>
-      <span class="navlink"><a ui-sref="eventsIndex">All Events</a></span>
-      <span class="navlink"><a ui-sref="eventsSearch">Find Events</a></span>
-      <span class="navlink" ng-if="main.isAuthenticated()"><a ui-sref="eventsNew">Post an Event</a></span>
+    <nav class="nav">
+      <a ui-sref="home"><img class="logo" src="../images/logo2.png"/></a>
+      <span class="navlink"><a ui-sref="eventsIndex">Latest Events</a></span>
+      <span class="navlink"><a ui-sref="eventsSearch">Search for Events</a></span>
+      <span class="navlink"><a ui-sref="eventsNew">Make a new Event</a></span>
       <span class="navUser">
         <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></span>
         <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></span>
@@ -26,9 +27,13 @@
   </top>
 
   <main>
-    <div class="message" ng-if="main.message">{{ main.message }}</div>
+    <!-- <div class="message" ng-if="main.message">{{ main.message }}</div>  Do this as a modal-->
+    <div class="advert">
+    </div>
     <view ui-view></view>
   </main>
-
+  <footer>
+    Made slowly...
+  </footer>
 </body>
 </html>
