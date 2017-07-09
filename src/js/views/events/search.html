@@ -4,25 +4,62 @@
   Search by...
 </p>
 
-<button class="button_1_4" ng-click="eventsSearch.nearMeNow()">near me now</button>
-<button class="button_1_4">pick a time</button>
-<button class="button_1_4">pick a place</button>
-<button class="button_1_4">pick a category</button>
+<button class="button_1_4" ng-click="eventsSearch.nearMeNow(); eventsSearch.searchButton(0)">near me now</button>
+<button class="button_1_4" ng-click="eventsSearch.searchButton(1)">pick a time</button>
+<button class="button_1_4" ng-click="eventsSearch.searchButton(2)">pick a place</button>
+<button class="button_1_4" ng-click="eventsSearch.searchButton(3)">pick a category</button>
+
+<div class="searchGridHidden clearfix" id="searchGrid">
+  <!-- col 1 -->
+  <div class="grid_item hidden">
+    <form ng-submit="eventsSearch.manualSearch()">
+      <label>postcode</label>
+      <input type="text" ng-model="eventsSearch.postcode" placeholder="N3 2GL">
+      <!-- <label>latitude</label>
+      <input type="text" ng-model="eventsSearch.lat">
+      <label>longitude</label>
+      <input type="text" ng-model="eventsSearch.long"> -->
+      <label>search distance (meters)</label>
+      <input type="text" ng-model="eventsSearch.distance">
+      <!-- <label>Number of results</label>
+      <input type="text" ng-model="eventsSearch.limit"> -->
+      <button>Go</button>
+    </form>
+  </div>
+  <!-- col 2 -->
+  <div class="grid_item hidden">
+    <form ng-submit="eventsSearch.timeSearch()">
+      <label>Start Time</label>
+      <input type="text" ng-model="eventsSearch.startTime">
+      <label>Finish Time</label>
+      <input type="text" ng-model="eventsSearch.finishTime">
+      <button>Go</button>
+    </form>
+  </div>
+  <!-- col 3 -->
+  <div class="grid_item hidden">
+    <form ng-submit="eventsSearch.placeSearch()">
+      <label>place name or postcode</label>
+      <input type="text" ng-model="eventsSearch.placename">
+      <label>search distance (meters)</label>
+      <input type="text" ng-model="eventsSearch.distance">
+      <!-- <label>Number of results</label>
+      <input type="text" ng-model="eventsSearch.limit"> -->
+      <button>Go</button>
+    </form>
+  </div>
+  <!-- col 4 -->
+  <div class="grid_item hidden">
+    <form ng-submit="eventsSearch.categorySearch()">
+      <label>Search Categories</label>
+      <input type="text" ng-model="eventsSearch.category" placeholder="sports">
+      <button>Go</button>
+    </form>
+  </div>
+</div>
 
 
-<form ng-submit="eventsSearch.manualSearch()">
-  <label>postcode</label>
-  <input type="text" ng-model="eventsSearch.postcode">
-  <label>lat</label>
-  <input type="text" ng-model="eventsSearch.lat">
-  <label>long</label>
-  <input type="text" ng-model="eventsSearch.long">
-  <label>distance</label>
-  <input type="text" ng-model="eventsSearch.distance">
-  <label>limit</label>
-  <input type="text" ng-model="eventsSearch.limit">
-  <button>Go</button>
-</form>
+
 <button ng-click="eventsSearch.clearResults()">Clear Results</button>
 
 

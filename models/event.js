@@ -16,7 +16,10 @@ const eventSchema = new mongoose.Schema({
   },
   website: { type: String, required: false },
   details: { type: String, required: false },
-  image: { type: String, required: true }
+  image: { type: String, required: true },
+  startTime: { type: Date, required: true }, //Start time, date set to /01/02/2003
+  finishTime: { type: Date, required: true }, //new Date(17, 7, 9, 8, 0, 0, 0),
+  date: { type: Date, required: true } // new Date(17, 7, 9, 17, 0, 0, 0)
 });
 
 eventSchema

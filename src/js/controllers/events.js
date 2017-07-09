@@ -54,6 +54,8 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
   vm.long = -0.091324;
   vm.limit = 10;
   vm.distance = 500;
+  vm.startTime = '0700';
+  vm.finishTime = '2300';
   vm.search_results = null;
 
   // for content Tabs:
@@ -126,6 +128,26 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
     }
   }
   vm.changeTab = changeTab;
+
+  vm.activeSearchButton = [];
+  function searchButton(x) {
+    console.log(x);
+    const gridItems = document.getElementsByClassName('grid_item');
+    const searchGrid = document.getElementById('searchGrid');
+    if(!vm.activeSearchButton.includes(x)) {
+      gridItems[x].classList.toggle('hidden');
+      searchGrid.classList.add('visible');
+      vm.activeSearchButton.push(x);
+    } else {
+      gridItems[x].classList.toggle('hidden');
+      vm.activeSearchButton.splice(vm.activeSearchButton.indexOf(x),1);
+    }
+
+    if(vm.activeSearchButton.length <=0){
+      searchGrid.classList.remove('visible');
+    }
+  }
+  vm.searchButton = searchButton;
 
 }
 

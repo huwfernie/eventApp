@@ -15,3 +15,45 @@
   background: inherit;
   font-size: 1em;
 }
+
+.searchGridHidden {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+
+  height: 1px;
+  visibility: hidden;
+
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+
+  margin-bottom: 10px;
+  .grid_item {
+    padding-left: 20px;
+    padding-right: 35px;
+    input {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    button {
+      width: 100%;
+      color: white;
+      background: #fe2c4e;
+      border: 2px solid white;
+      border-radius: 7px;
+      &:hover {
+        background: #bb2039;
+      }
+    }
+  }
+  &.visible {
+    height: auto;
+    visibility: visible;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+}
