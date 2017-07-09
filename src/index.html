@@ -17,11 +17,11 @@
       <span class="navlink"><a ui-sref="eventsSearch">Search for Events</a></span>
       <span class="navlink"><a ui-sref="eventsNew">Make a new Event</a></span>
       <span class="navUser">
-        <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="login">Login</a></span>
-        <span class="navlink" ng-if="!main.isAuthenticated()"><a ui-sref="register">Register</a></span>
-        <span class="navlink" ng-if="main.isAuthenticated()">{{ main.currentUser.username }}</span>
-        <span class="navlink" ng-if="main.isAuthenticated()"><button ng-click="main.logout()">Logout</button></span>
-        <span class="navlink" ng-if="main.isAuthenticated()"><a ui-sref="usersShow"><button>Profile</button></a></span>
+        <a ui-sref="login"><span class="navlink" ng-if="!main.isAuthenticated()">Login</span></a>
+        <a ui-sref="register"><span class="navlink" ng-if="!main.isAuthenticated()">Register</span></a>
+        <a ui-sref="usersShow"><span class="navlink" ng-if="main.isAuthenticated()">{{ main.currentUser.username }}</span></a>
+        <span class="navlink" ng-if="main.isAuthenticated()" ng-click="main.logout()">Logout</span>
+        <a ui-sref="usersShow"><span class="navlink" ng-if="main.isAuthenticated()">My Account</span></a>
       </span>
     </nav>
   </top>

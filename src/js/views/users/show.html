@@ -16,17 +16,15 @@
     I'm attending
   </div>
 
-  <div class="tabbed">
-    <div class="content">
-      Content 1
-      <div  ng-repeat="event in usersShow.events">
-        <ul>
-          <li><img src="{{event.image}}" alt="image"></li>
-          <li>{{event.title}}</li>
-          <li>{{event.date}}</li>
-          <li>{{event.details | limitTo : 20}}</li>
-        </ul>
-      </div>
+  <div class="tab_content">
+    <!-- Content 1 -->
+    <div  ng-repeat="event in usersShow.events">
+      <ul>
+        <li><img src="{{event.image}}" alt="image"></li>
+        <li>{{event.title}}</li>
+        <li>{{event.date}}</li>
+        <li>{{event.details | limitTo : 20}}</li>
+      </ul>
     </div>
   </div>
 

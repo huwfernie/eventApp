@@ -1,0 +1,38 @@
+.tab-container {
+  width: 100%;
+  margin: 0 auto;
+  background: inherit;
+  // font-size: 0;
+}
+
+.tabs {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 20%;
+  float: left;
+  background: #f5f0c2;
+  height: 60px;
+  margin: 0;
+  border: 2px solid black;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  padding-top: 10px;
+  &.active {
+    background: #f5ddc2;
+    border-bottom: 0;
+  }
+}
+
+
+.tab_content {
+  box-sizing: border-box;
+  width: 100%;
+  background: #f5ddc2;
+  border: 2px solid black;
+  border-top: 0;
+  font-size: 1em;
+  float: left;
+}

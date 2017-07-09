@@ -32,9 +32,36 @@
   ===================
 </p>
 
-<div class="listContainer">
-  <div class="eventsList" ng-repeat="event in eventsSearch.search_results">
-      <img class="thumbnail" src="{{event.image}}" alt="thumbnail">
-      <a ui-sref="eventsShow({ id: event.id })"><h2>{{ event.name }}</h2></a>
+<div class="tab-container clearfix">
+  <div class="tabs" ng-click="eventsSearch.changeTab(1)">
+    List
   </div>
+  <div class="tabs active" ng-click="eventsSearch.changeTab(2)">
+    Map
+  </div>
+
+  <!-- Tab 1 list -->
+  <div class="tab_content none">
+    <div class="tab1 listContainer">
+      <p>
+        tab 1
+      </p>
+      <div class="eventsList" ng-repeat="event in eventsSearch.search_results">
+          <img class="thumbnail" src="{{event.image}}" alt="thumbnail">
+          <a ui-sref="eventsShow({ id: event.id })"><h2>{{ event.name }}</h2></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab 2 Map -->
+  <div class="tab_content">
+    <div class="tab2 mapContainer">
+      <p>
+        tab 2
+      </p>
+      <img class="map" src="./images/map.png" alt="map of events">
+    </div>
+  </div>
+
+
 </div>

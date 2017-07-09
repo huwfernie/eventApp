@@ -1,5 +1,6 @@
 @import "./_normalize.css";
 @import "./_buttons.scss";
+@import "./_tabbed.scss";
 @import "./_footer.scss";
 
 body {
@@ -27,9 +28,10 @@ body {
     padding: 3px 5px;
     margin: 5px;
     border-radius: 7px;
+    color: blue;
+    cursor: pointer;
   }
   a {
-    color: blue;
     text-decoration: none;
   }
   img {
@@ -49,7 +51,7 @@ main {
   padding: 10px;
   background: #7474ce;
   background: white;
-  img {
+  .showImg {
     box-sizing: border-box;
     float: right;
     border: 2px solid #dfdffb;
@@ -71,44 +73,7 @@ ul {
   }
 }
 
-.tab-container {
-  width: 100%;
-  margin: 0 auto;
-  background: inherit;
-  // font-size: 0;
-}
 
-.tabs {
-  box-sizing: border-box;
-  display: inline-block;
-  width: 20%;
-  float: left;
-  background: #f5f0c2;
-  height: 60px;
-  margin: 0;
-  border: 2px solid black;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  font-size: 16px;
-  line-height: 20px;
-  text-align: center;
-  padding-top: 10px;
-  &.active {
-    background: #f5ddc2;
-    border-bottom: 0;
-  }
-}
-
-
-.tabbed {
-  box-sizing: border-box;
-  width: 100%;
-  background: #f5ddc2;
-  border: 2px solid black;
-  border-top: 0;
-  font-size: 1em;
-  float: left;
-}
 
 .listContainer {
   .eventsList {
@@ -139,6 +104,17 @@ ul {
   }
 }
 
+form {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.map {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
 .about {
   display: block;
   padding: 10px 0;
@@ -150,6 +126,7 @@ ul {
   background-image: url("https://tpc.googlesyndication.com/simgad/6763093119725341082");
   border: 0px;
   width: 970px;
+  margin-bottom: 20px;
 }
 
 //  generic
