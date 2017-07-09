@@ -15,7 +15,11 @@ router.route('/events')
 
 router.route('/eventsSearch')
 // .all(secureRoute)
-  .get(events.search);
+  .get(events.searchManual);
+
+router.route('/eventsSearchTime')
+// .all(secureRoute)
+  .get(events.searchTime);
 
 router.route('/events/:id')
 //.all(secureRoute)
