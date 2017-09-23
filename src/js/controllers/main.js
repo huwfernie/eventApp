@@ -9,15 +9,18 @@ function MainCtrl($rootScope, $state, $auth, userService, User) {
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
-  const data = $auth.getPayload();
-  User
-    .get({ id: data.userId })
-    .$promise
-    .then((user) => {
-      console.log('this', user.username);
-      vm.currentUser.username = user.username;
-      userService.currentUser = user;
-    });
+  // this is the process that stopped it all from working, hence always false
+  if(1>2) {
+    const data = $auth.getPayload();
+    User
+      .get({ id: data.userId })
+      .$promise
+      .then((user) => {
+        console.log('this', user.username);
+        vm.currentUser.username = user.username;
+        userService.currentUser = user;
+      });
+    }
 
 
   // rootscope is listening - it will pick up any 'error'

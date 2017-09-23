@@ -21,6 +21,7 @@
     "satellizer": "^0.15.5"
   },
   "resolutions": {
-    "angular": "^1.6.3"
+    "angular": "^1.6.3",
+    "angular-ui-router": "^1.0.6"
   }
 }
