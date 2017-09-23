@@ -31,7 +31,7 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
     console.log('data');
     vm.long = data.coords.longitude;
     vm.lat = data.coords.latitude;
-    return;
+    return vm.lat;
   }
 
   function nearMeNow() {

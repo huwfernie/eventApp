@@ -1,2 +1,4 @@
 angular
-  .module('eventApp', ['ui.router', 'ngResource', 'satellizer']);
+  .module('eventApp', [
+    'ui.router', 'ngResource', 'satellizer'
+  ]);

@@ -33,13 +33,13 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/events/edit.html',
       controller: 'EventsEditCtrl as eventsEdit'
     })
-// users
+  // users
     .state('usersShow', {
       url: '/users/:id',
       templateUrl: 'js/views/users/show.html',
       controller: 'UsersShowCtrl as usersShow'
     })
-// register and login
+  // register and login
     .state('register', {
       url: '/register',
       templateUrl: 'js/views/auth/register.html',
@@ -53,7 +53,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('home', {
       url: '/home',
       templateUrl: 'js/views/statics/index.html',
-      controller: 'LoginCtrl as login'
+      controller: 'HomeCtrl as home'
     });
 
   $urlRouterProvider.otherwise('/home');
