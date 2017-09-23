@@ -4,16 +4,36 @@
     <input type="text" name="name" id="name" ng-model="eventsNew.event.name">
   </div>
   <div>
-    <label for="latinName">Latin Name</label>
-    <input type="text" name="latinName" id="latinName" ng-model="eventsNew.event.latinName">
+    <label for="category">Category</label>
+    <input type="text" name="category" id="category" ng-model="eventsNew.event.category">
   </div>
   <div>
-    <label for="family">Family</label>
-    <input type="text" name="family" id="family" ng-model="eventsNew.event.family">
+    <label for="postcode">Postcode</label>
+    <input type="text" name="postcode" id="postcode" ng-model="eventsNew.event.postcode">
+  </div>
+  <div>
+    <label for="website">Website</label>
+    <input type="text" name="website" id="website" ng-model="eventsNew.event.website">
+  </div>
+  <div>
+    <label for="details">Details</label>
+    <input type="text" name="details" id="details" ng-model="eventsNew.event.details">
   </div>
   <div>
     <label for="image">Image</label>
     <input base64 type="file" name="image" id="image" ng-model="eventsNew.event.base64">
+  </div>
+  <div>
+    <label for="startTime">start</label>
+    <input type="date" name="startTime" id="startTime" ng-model="eventsNew.event.startTime">
+  </div>
+  <div>
+    <label for="finishTime">finish</label>
+    <input type="date" name="finishTime" id="finishTime" ng-model="eventsNew.event.finishTime">
+  </div>
+  <div>
+    <label for="family">Family</label>
+    <input type="text" name="family" id="family" ng-model="eventsNew.event.family">
   </div>
   <button>Create</button>
 </form>

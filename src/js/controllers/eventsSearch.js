@@ -30,20 +30,21 @@ function EventsSearchCtrl(Event, $stateParams, $state, $http) {
     // used by nearMeNow
     console.log('data');
     vm.long = data.coords.longitude;
-    return vm.lat = data.coords.latitude;
+    vm.lat = data.coords.latitude;
+    return;
   }
 
   function nearMeNow() {
     // use HTML 5 geo location, then call manualSearch with location result
     getLocation()
-    .then((position) => {
-      console.log(position);
-      useData(position);
-      return manualSearch();
-    })
-    .catch((err) => {
-      return console.error(err.message);
-    });
+      .then((position) => {
+        console.log(position);
+        useData(position);
+        return manualSearch();
+      })
+      .catch((err) => {
+        return console.error(err.message);
+      });
   }
   vm.nearMeNow = nearMeNow;
 

@@ -3,7 +3,7 @@ const events = require('../controllers/events');
 const users = require('../controllers/users');
 const auth = require('../controllers/auth');
 const oauth = require('../controllers/oauth');
-const secureRoute = require('../lib/secureRoute');
+//const secureRoute = require('../lib/secureRoute');
 const imageUpload = require('../lib/imageUpload');
 
 // Events

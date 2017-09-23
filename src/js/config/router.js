@@ -7,7 +7,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
-// events
+  // events
     .state('eventsIndex', {
       url: '/events',
       templateUrl: 'js/views/events/index.html',
